@@ -1,3 +1,4 @@
+
 export const userInputs = [
     {
       id: 1,
@@ -76,24 +77,24 @@ export const userInputs = [
       type: "text",
       placeholder: "Warehouse",
     },
-    {
-      id: 2,
-      label: "Location",
-      type: "text",
-      placeholder: "Location",
-    },
-    {
-      id: 3,
-      label: "Hash Address",
-      type: "text",
-      placeholder: "Hash Address",
-    },
-    {
-      id: 4,
-      label: "status",
-      type: "text",
-      placeholder: "status",
-    },
+    // {
+    //   id: 2,
+    //   label: "Location",
+    //   type: "text",
+    //   placeholder: "Location",
+    // },
+    // {
+    //   id: 3,
+    //   label: "Hash Address",
+    //   type: "text",
+    //   placeholder: "Hash Address",
+    // },
+    // {
+    //   id: 4,
+    //   label: "status",
+    //   type: "text",
+    //   placeholder: "status",
+    // },
   ];
 
   export const factoryInputs = [ 

@@ -7,7 +7,7 @@ import SimpleStorage_abi from './artifacts/contracts/SimpleStorage.sol/SimpleSto
 const SimpleStorage = () => {
 
 	// deploy simple storage contract and paste deployed contract address here. This value is local ganache chain
-	let contractAddress = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0';
+	let contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [defaultAccount, setDefaultAccount] = useState(null);
