@@ -1,8 +1,8 @@
-// https://docs.metamask.io/guide/ethereum-provider.html#using-the-provider
 
 import React, {useState} from 'react'
 import {ethers} from 'ethers'
 import SimpleStorage_abi from './artifacts/contracts/SimpleStorage.sol/SimpleStorage.json'
+// https://docs.metamask.io/guide/ethereum-provider.html#using-the-provider
 
 const SimpleStorage = () => {
 

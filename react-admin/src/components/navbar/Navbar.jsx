@@ -1,15 +1,16 @@
-import "./navbar.scss";
 import React, {useState} from 'react';
-import SimpleStorage_abi from '../../artifacts/contracts/SimpleStorage.sol/SimpleStorage.json';
+import SimpleStorage_abi from '../../artifacts/contracts/Roles/Warehouse.sol/Warehouse.json';
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import { ethers } from 'ethers';
+import "./navbar.scss";
 
 const Navbar = (props) =>{
   let contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
-  
+
+  const { dispatch,metaMask,myContract } = useContext(DarkModeContext);
 
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [defaultAccount, setDefaultAccount] = useState(null);
@@ -19,7 +20,7 @@ const Navbar = (props) =>{
 
 	const [provider, setProvider] = useState(null);
 	const [signer, setSigner] = useState(null);
-	const [contract, setContract] = useState(null);
+	const [contract, setContract] = useState(myContract);
 
 	const connectWalletHandler = () => {
 		if (window.ethereum && window.ethereum.isMetaMask) {
@@ -44,6 +45,7 @@ const Navbar = (props) =>{
 	
 	const accountChangedHandler = (newAccount) => {
 		setDefaultAccount(newAccount);
+		dispatch({ type: "setMetask",data:newAccount })
 		
 		console.log('accountChangedHandler called ',newAccount);
 		updateEthers();
@@ -68,10 +70,10 @@ const Navbar = (props) =>{
 
 		let tempContract = new ethers.Contract(contractAddress, SimpleStorage_abi.abi, tempSigner);
 		setContract(tempContract);
+		dispatch({ type: "updateContract",myContract:tempContract })
 			
 	}
 	
-  const { dispatch } = useContext(DarkModeContext);
   const name= signer
  
   return (
@@ -82,12 +84,12 @@ const Navbar = (props) =>{
           <SearchOutlinedIcon />
         </div>
         <div className="items">
-          {/* <div className="item">
+          <div className="item">
 	
-			<button onClick={()=>props.alert(name)} >Click Me</button>
-          <h3>Address: {defaultAccount}</h3>
+			{/* <button onClick={()=>props.alert(name)} >Click Me</button> */}
+          { <h3>Address: {defaultAccount}</h3>}
           <button onClick={connectWalletHandler}>Connect Metamask</button>
-          </div> */}
+          </div>
           <div className="item">
             <DarkModeOutlinedIcon
               className="icon"
@@ -108,5 +110,5 @@ const Navbar = (props) =>{
     </div>
   );
 };
-
 export default Navbar;
+
