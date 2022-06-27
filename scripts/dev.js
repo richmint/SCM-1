@@ -21,10 +21,11 @@ async function main() {
   await warehouse.deployed();
    console.log("Warehouse deployed to:", warehouse.address);
 
-  // const Factory = await ethers.getContractFactory("Factory");
-  // const factory = await Factory.deploy();
-  // await factory.deployed();
-  //  console.log("Factory deployed to:", factory.address);
+  const Factory = await ethers.getContractFactory("Factory");
+  const factory = await Factory.deploy();
+  await factory.deployed();
+  
+   console.log("Factory deployed to:", factory.address);
 
   // const ISO = await ethers.getContractFactory("ISO");
   // const iso = await ISO.deploy();

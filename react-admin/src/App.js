@@ -16,6 +16,7 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import Warehouseform from "./pages/new/Warehuseform";
+import Factoryform from "./pages/new/Factoryform";
 
 function App() {  
   const { darkMode } = useContext(DarkModeContext);
@@ -56,7 +57,7 @@ function App() {
               <Route path=":factoryId" element={<Single />} />
               <Route
                 path="new"
-                element={<New inputs={factoryInputs} title="Add New Factory" />}
+                element={<Factoryform inputs={factoryInputs} title="Add New Factory" />}
               />
             </Route>
             <Route path="product-approver">
