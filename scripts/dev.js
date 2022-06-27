@@ -6,15 +6,15 @@
 const {ethers} = require("hardhat");
 
 async function main() {
-  const [
-        adminSigner,
-        warehouseSigner, 
-        factorySigner, 
-        ISOSigner, 
-        distributorSigner, 
-        retailerSigner, 
-        customerSigner
-        ] = await ethers.getSigners();
+  // const [
+  //       adminSigner,
+  //       warehouseSigner, 
+  //       factorySigner, 
+  //       ISOSigner, 
+  //       distributorSigner, 
+  //       retailerSigner, 
+  //       customerSigner
+  //       ] = await ethers.getSigners();
 
   const Warehouse = await ethers.getContractFactory("Warehouse");
   const warehouse = await Warehouse.deploy();
