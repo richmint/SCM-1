@@ -1,3 +1,5 @@
+import React from 'react';
+
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { retailerColumns, retailerRows} from "../../datatablesource";
