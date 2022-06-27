@@ -7,21 +7,21 @@ import { useState } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 
 
-const Warehouseform = ({ inputs, title, value }) => {
-  const { dispatch,metaMask,warehouseContract } = useContext(DarkModeContext);
+const Factoryform = ({ inputs, title, value }) => {
+  const { dispatch,metaMask,factoryContract } = useContext(DarkModeContext);
   const [errorMessage, setErrorMessage] = useState(null);
   
   const [allWarehouse, setAllWarehouse] = useState(null);
   const [defaultAccount, setDefaultAccount] = useState(null);
 
-  const [whContract, setContract] = useState(warehouseContract);
-  //console.log("whContract",whContract);
+  const [fContract, setContract] = useState(factoryContract);
+  //console.log("fContract",fContract);
 
-	const addWarehouseHandler = (event) => {
+	const addFactoryHandler = (event) => {
 		event.preventDefault();		
-        // console.log(whContract);
-		// console.log('sending ' + event.target.setText.value + ' to the whContract');
-		warehouseContract.addWarehouse(event.target.setText.value);
+         console.log(fContract);
+		// console.log('sending ' + event.target.factoryhashaddress.value + ' to the fContract');
+		factoryContract.addFactory(event.target.factoryhashaddress.value);
 	}
 
   return (
@@ -34,9 +34,9 @@ const Warehouseform = ({ inputs, title, value }) => {
         </div>
         <div className="bottom">
           <div className="right">          
-            <form onSubmit={addWarehouseHandler}>
-            <input id="setText" type="text"/>
-            <button type={"submit"}> Add Warehouse </button>
+            <form onSubmit={addFactoryHandler}>
+            <input id="factoryhashaddress" type="text"/>
+            <button type={"submit"}> Add Factory </button>
           </form>
           
           </div>
@@ -46,4 +46,4 @@ const Warehouseform = ({ inputs, title, value }) => {
   );
 };
 
-export default Warehouseform;
+export default Factoryform;
