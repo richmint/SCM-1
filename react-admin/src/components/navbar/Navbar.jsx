@@ -7,10 +7,11 @@ import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import { ethers } from 'ethers';
 import "./navbar.scss";
-
+// 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
 const Navbar = (props) =>{
-  let whContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
-  let fContractAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512';
+  let contractAddress = '0x478ddfE9f26FCF11Be8569d5D833FD7C25C30516';
+  const { dispatch,metaMask,myContract } = useContext(DarkModeContext);
+
 
     const { dispatch,metaMask,warehouseContract,factoryContract } = useContext(DarkModeContext);
 	const [errorMessage, setErrorMessage] = useState(null);

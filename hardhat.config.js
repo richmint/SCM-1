@@ -23,8 +23,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
     url: "http://127.0.0.1:8545"
   },
   rinkeby: {
-    url: "https://rinkeby.infura.io/v3/e6f36b7eca2a42c5ab2d5157740485e8", //Infura url with projectId
-    accounts: ["0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80", "0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d"] // add the account that will deploy the contract (private key)
+    url: "https://speedy-nodes-nyc.moralis.io/3b50a8f528f7397fd9f310cf/eth/rinkeby", //Infura url with projectId
+    accounts: ["28c80c76dc8dbfb442d93503d7583f645d96881346129be7ef74c01a8ad13378"] // add the account that will deploy the contract (private key)
    }
   },
   paths:{
