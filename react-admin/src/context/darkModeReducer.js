@@ -24,10 +24,16 @@ const DarkModeReducer = (state, action) => {
         metaMask: action.data,
       };
     }
-    case "updateContract":{
+    case "updateWarehouse":{
       return {
         ...state,
-        myContract: action.myContract,
+        warehouseContract: action.warehouseContract,
+      };
+    }
+    case "updateFactory":{
+      return {
+        ...state,
+        factoryContract: action.factoryContract,
       };
     }
     default:

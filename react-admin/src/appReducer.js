@@ -1,9 +1,6 @@
-// import { combineReducers } from 'redux';
-// import { centerReducer as centerPage } from './centerReducer';
-// const appReducer = combineReducers({
-    
-//     centerPage,
-
-// });
-
-// export default appReducer;
+import LoginReducer from './pages/login/LoginSlice'
+export default {
+    reducer:{
+        login:LoginReducer
+    }
+};

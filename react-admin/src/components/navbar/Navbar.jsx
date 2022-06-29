@@ -1,26 +1,30 @@
-import React, {useState} from 'react';
-import SimpleStorage_abi from '../../artifacts/contracts/Roles/Warehouse.sol/Warehouse.json';
+import React, {useEffect, useState} from 'react';
+import Warehouse_abi from '../../artifacts/contracts/Roles/Warehouse.sol/Warehouse.json';
+import Factory_abi from '../../artifacts/contracts/Roles/Factory.sol/Factory.json';
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import { ethers } from 'ethers';
 import "./navbar.scss";
-// 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+
 const Navbar = (props) =>{
-  let contractAddress = '0x478ddfE9f26FCF11Be8569d5D833FD7C25C30516';
+  let whContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+  let fContractAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512';
 
-  const { dispatch,metaMask,myContract } = useContext(DarkModeContext);
-
+    const { dispatch,metaMask,warehouseContract,factoryContract } = useContext(DarkModeContext);
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [defaultAccount, setDefaultAccount] = useState(null);
 	const [connButtonText, setConnButtonText] = useState('Connect Wallet');
-
 	const [currentContractVal, setCurrentContractVal] = useState(null);
-
 	const [provider, setProvider] = useState(null);
 	const [signer, setSigner] = useState(null);
-	const [contract, setContract] = useState(myContract);
+	const [whContract, setwhContract] = useState(warehouseContract);
+	const [fContract, setfContract] = useState(factoryContract);
+
+	useEffect(()=>{
+		connectWalletHandler();
+	},[]);
 
 	const connectWalletHandler = () => {
 		if (window.ethereum && window.ethereum.isMetaMask) {
@@ -59,8 +63,8 @@ const Navbar = (props) =>{
 
 	// listen for account changes
 	window.ethereum.on('accountsChanged', accountChangedHandler);
-
 	window.ethereum.on('chainChanged', chainChangedHandler);
+
 	const updateEthers = () => {
 		let tempProvider = new ethers.providers.Web3Provider(window.ethereum);
 		setProvider(tempProvider);
@@ -68,9 +72,13 @@ const Navbar = (props) =>{
 		let tempSigner = tempProvider.getSigner();
 		setSigner(tempSigner);
 
-		let tempContract = new ethers.Contract(contractAddress, SimpleStorage_abi.abi, tempSigner);
-		setContract(tempContract);
-		dispatch({ type: "updateContract",myContract:tempContract })
+		let warehousetempContract = new ethers.Contract(whContractAddress, Warehouse_abi.abi, tempSigner);
+		setwhContract(warehousetempContract);
+		dispatch({ type: "updateWarehouse",warehouseContract:warehousetempContract })
+
+		let factorytempContract = new ethers.Contract(fContractAddress, Factory_abi.abi, tempSigner);
+		setfContract(factorytempContract);
+		dispatch({ type: "updateFactory",factoryContract:factorytempContract })
 			
 	}
 	
@@ -111,4 +119,3 @@ const Navbar = (props) =>{
   );
 };
 export default Navbar;
-

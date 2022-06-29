@@ -6,7 +6,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Warehouse_abi from '../../artifacts/contracts/Roles/Warehouse.sol/Warehouse.json'
 import { useState } from "react";
 import { ethers } from 'ethers';
-// let contractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
+let contractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
 const New = ({ inputs, title, value }) => {
 
 	const [currentContractVal, setCurrentContractVal] = useState(null);

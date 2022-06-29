@@ -13,7 +13,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/admin" style={{ textDecoration: "none" }}>
           <span className="logo">Richmint</span>
         </Link>
       </div>
@@ -21,37 +21,37 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           
-          <Link to="/warehouse" style={{ textDecoration: "none" }}>
+          <Link to="/admin/warehouse" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Warehouse</span>
             </li>
           </Link>
-          <Link to="/factory" style={{ textDecoration: "none" }}>
+          <Link to="/admin/factory" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Factory</span>
             </li>
           </Link>
-          <Link to="/product-approver" style={{ textDecoration: "none" }}>
+          <Link to="/admin/product-approver" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Product Approver</span>
             </li>
           </Link>
-          <Link to="/distributer" style={{ textDecoration: "none" }}>
+          <Link to="/admin/distributer" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Distributer</span>
             </li>
           </Link>
-          <Link to="/retailer" style={{ textDecoration: "none" }}>
+          <Link to="/admin/retailer" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Retailer</span>
             </li>
           </Link>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/admin/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Users</span>
