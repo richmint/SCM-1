@@ -9,8 +9,8 @@ import { ethers } from 'ethers';
 import "./navbar.scss";
 // 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
 const Navbar = (props) =>{
-	let whContractAddress = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0';
-	let fContractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
+	let whContractAddress = '0x1aEf554fE83664c832b9b755578eeb05d11d3470';
+	let fContractAddress = '0x1F20b96f19828742805630e19f941613e8885709';
 
     const { dispatch,metaMask,warehouseContract,factoryContract } = useContext(DarkModeContext);
 	const [errorMessage, setErrorMessage] = useState(null);
