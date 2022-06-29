@@ -14,8 +14,8 @@ const Factoryform = ({ inputs, title, value }) => {
   const addFactoryHandler = (event) => {
     event.preventDefault();
     console.log(fContract);
-    // console.log('sending ' + event.target.factoryhashaddress.value + ' to the fContract');
-    factoryContract.addFactory(event.target.factoryhashaddress.value);
+    // console.log('sending ' + event.target.rawmaterialsupplieraddress.value + ' to the fContract');
+    factoryContract.addFactory(event.target.rawmaterialsupplieraddress.value);
   }
   return (
     <div className="new">
@@ -29,11 +29,11 @@ const Factoryform = ({ inputs, title, value }) => {
           <div className="right">
             <form onSubmit={addFactoryHandler}>
               <div className="formInput">
-                <label>Factory Hash Address</label>
-                <input id="factoryhashaddress" type="text" />
+                <label>Raw Material Supplier Hash Address</label>
+                <input id="rawmaterialsupplieraddress" type="text" />
               </div>
               <div className="formInput">
-                <label>Factory Name</label>
+                <label>Supplier Name</label>
                 <input id="name" type="text" />
               </div>
               <div className="formInput">
@@ -44,7 +44,7 @@ const Factoryform = ({ inputs, title, value }) => {
                 <label>Location</label>
                 <input id="location" type="text" />
               </div>
-              <button type={"submit"}> Add Factory </button>
+              <button type={"submit"}> Submit </button>
             </form>
           </div>
         </div>

@@ -4,7 +4,8 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import WarehouseList from "./pages/list/warehouseList";
-import FactoryList from "./pages/list/factoryList"; 
+import FactoryList from "./pages/list/factoryList";
+import RawMaterialSupplierList from "./pages/list/RawMaterialSupplierList"; 
 import ProductApproverList from "./pages/list/ProductApproverList";
 import DistributerList from "./pages/list/DistributerList";
 import RetailerList from "./pages/list/RetailerList";   
@@ -17,7 +18,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import Warehouseform from "./pages/new/Warehuseform";
 import Factoryform from "./pages/new/Factoryform";
-
+import Rawmaterialsupplierform from "./pages/new/Rawmaterialsupplierform";
 function App() {  
   const { darkMode } = useContext(DarkModeContext);
 
@@ -36,12 +37,12 @@ function App() {
                 element={<New inputs={userInputs} title="Add New User" />}
               />
             </Route>
-            <Route path="products">
-              <Route index element={<List />} />
-              <Route path=":productId" element={<Single />} />
+            <Route path="rawmaterialsupplier">
+              <Route index element={<RawMaterialSupplierList />} />
+              <Route path=":rawmaterialsupplierId" element={<Single />} />
               <Route
                 path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
+                element={<Rawmaterialsupplierform inputs={productInputs} title="Add New Raw Material Supplier" />}
               />
             </Route>
             <Route path="warehouse">

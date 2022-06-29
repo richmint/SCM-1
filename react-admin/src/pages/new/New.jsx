@@ -1,60 +1,63 @@
-import React from 'react';
-
 import "./new.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Warehouse_abi from '../../artifacts/contracts/Roles/Warehouse.sol/Warehouse.json'
+import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
-import { ethers } from 'ethers';
-// let contractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
-const New = ({ inputs, title, value }) => {
 
-	const [currentContractVal, setCurrentContractVal] = useState(null);
-
-	const [contract, setContract] = useState(null);	
-
-	const setHandler = () => {
-		
-
-		// let tempContract = new ethers.Contract(contractAddress, Warehouse_abi.abi, tempSigner);
-		// setContract(tempContract);	
-
-    // console.log(tempContract);
-  
-  
-	}
-
-	// const parentTempSigner = (data) => {
-	// 	console.log(data)
-	// }
-
-	function parentTempSigner(data){
-		console.log("hello : ", data)
-	}
+const New = ({ inputs, title }) => {
+  const [file, setFile] = useState("");
 
   return (
     <div className="new">
       <Sidebar />
       <div className="newContainer">
-        <Navbar alert={parentTempSigner} />
+        <Navbar />
         <div className="top">
           <h1>{title}</h1>
         </div>
         <div className="bottom">
+          <div className="left">
+            <img
+              src={
+                file
+                  ? URL.createObjectURL(file)
+                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+              }
+              alt=""
+            />
+          </div>
           <div className="right">
 
-            <form onSubmit={setHandler}>
+          <form>
+          <div className="formInput">
+          <label>dsfgsdfs</label>
             <input id="setText" type="text"/>
+            </div>
             <button type={"button"}> Add Warehouse </button>
           </form>
-              {/* {inputs.map((input) => (
+
+
+            <form>
+              <div className="formInput">
+                <label htmlFor="file">
+                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                </label>
+                <input
+                  type="file"
+                  id="file"
+                  onChange={(e) => setFile(e.target.files[0])}
+                  style={{ display: "none" }}
+                />
+              </div>
+
+              {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
                   <input type={input.type} placeholder={input.placeholder} />
                 </div>
               ))}
-              <button>Send</button> */}
-          
+              <button>Send</button>
+            </form>
           </div>
         </div>
       </div>

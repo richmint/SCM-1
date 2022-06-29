@@ -38,7 +38,10 @@ const Warehousetable = () => {
 
     }
   }
-
+  useEffect(() => {
+    // Update the document title using the browser API
+    getWarehouseHandler();
+  });
   const alllist = []
   if (allWarehouse) {
     allWarehouse.forEach((allW) => {
@@ -71,10 +74,7 @@ const Warehousetable = () => {
         </div>
         <div className="bottom">
           <div className="right">
-            <h3>Address: {defaultAccount}</h3>
-            {/*<button onClick={connectWalletHandler}>Connect Metamask</button>*/}
-            <button onClick={getWarehouseHandler}>Get Warehouse List</button>
-            <br></br>
+            
             <table>
               <tr>
                 <th>Warehouse Address</th>
